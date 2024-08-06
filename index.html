@@ -1,38 +1,98 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тренер Пранаямы</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>CodeCouturiers Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #7E57C2;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            margin: 0;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .project-card h3 {
+            color: #7E57C2;
+            margin-top: 0;
+        }
+        .project-card p {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #7E57C2;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #6A48B7;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="controls">
-            <label for="pranayamaType">Выберите тип пранаямы:</label>
-            <select id="pranayamaType"></select>
+    <header>
+        <h1>CodeCouturiers Projects</h1>
+    </header>
 
-            <label for="trainingMode">Выберите режим тренировки:</label>
-            <select id="trainingMode"></select>
+    <main>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Pranayama Trainer</h3>
+                <p>Discover the art of breath control with our interactive Pranayama Trainer. Perfect for beginners and seasoned practitioners alike.</p>
+                <a href="pranayama-trainer/index.html" class="btn btn-primary">Try It Now</a>
+            </div>
 
-            <button id="startBtn">Начать</button>
-            <button id="stopBtn" disabled>Стоп</button>
+            <!-- Add more project cards here -->
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Description of Project 2 goes here.</p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Description of Project 3 goes here.</p>
+                <a href="#" class="btn btn-primary">Learn More</a>
+            </div>
         </div>
+    </main>
 
-        <div class="instructions-container">
-            <p id="instructions"></p>
-        </div>
-
-        <div class="timer">
-            <span>Время: </span>
-            <span id="currentTime">00:00</span>
-            <span> / </span>
-            <span id="targetTime">00:00</span>
-            <span id="currentPhase"></span>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 CodeCouturiers. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренер Пранаямы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <label for="pranayamaType">Выберите тип пранаямы:</label>
+            <select id="pranayamaType"></select>
+
+            <label for="trainingMode">Выберите режим тренировки:</label>
+            <select id="trainingMode"></select>
+
+            <button id="startBtn">Начать</button>
+            <button id="stopBtn" disabled>Стоп</button>
+        </div>
+
+        <div class="instructions-container">
+            <p id="instructions"></p>
+        </div>
+
+        <div class="timer">
+            <span>Время: </span>
+            <span id="currentTime">00:00</span>
+            <span> / </span>
+            <span id="targetTime">00:00</span>
+            <span id="currentPhase"></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
