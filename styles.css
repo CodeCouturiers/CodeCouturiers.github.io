@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    color: #37474F;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+select {
+    background-color: white;
+    border: 1px solid #7E57C2;
+}
+
+button {
+    background-color: #7E57C2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #81C784;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.instructions-container {
+    border: 1px solid #7E57C2;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+
+#instructions {
+    font-size: 16px;
+}
+
+.timer {
+    text-align: center;
+    font-size: 18px;
+}
+
+#currentTime, #targetTime {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#currentTime {
+    color: #7E57C2;
+}
+
+#targetTime {
+    color: #81C784;
+}
