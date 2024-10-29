@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Contact CodeCoutureHub - Get Custom Software Development Solutions
+    </title>
+    <meta
+      name="description"
+      content="Contact CodeCoutureHub for premium software development services. Get in touch for custom solutions, full-stack development, and clean code architecture."
+    />
+    <meta
+      name="keywords"
+      content="contact CodeCoutureHub, software development contact, custom software solutions, development consultation"
+    />
+    <meta name="author" content="CodeCoutureHub" />
+    <link rel="canonical" href="https://codecouturehub.com/contact.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codecouturehub.com/contact.html" />
+    <meta
+      property="og:title"
+      content="Contact CodeCoutureHub - Custom Software Development"
+    />
+    <meta
+      property="og:description"
+      content="Get in touch with CodeCoutureHub for premium software development services and custom solutions."
+    />
+    <meta
+      property="og:image"
+      content="https://codecouturehub.com/images/contact-og.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://codecouturehub.com/contact.html"
+    />
+    <meta property="twitter:title" content="Contact CodeCoutureHub" />
+    <meta
+      property="twitter:description"
+      content="Get in touch with CodeCoutureHub for premium software development services and custom solutions."
+    />
+    <meta
+      property="twitter:image"
+      content="https://codecouturehub.com/images/contact-twitter.jpg"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact CodeCoutureHub",
+        "description": "Contact page for CodeCoutureHub software development services",
+        "url": "https://codecouturehub.com/contact.html",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "CodeCoutureHub",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": ["English"]
+          }
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --primary: #1a1a2e;
+        --secondary: #0f3460;
+        --accent: #16213e;
+        --text: #2d3436;
+        --background: #f8f9fa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--background);
+      }
+
+      .container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .back-link {
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .form-container {
+        flex: 1;
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .iframe-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%; /* Default aspect ratio */
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .iframe-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .loading-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--background);
+        z-index: 1;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Fallback contact information */
+      .fallback-contact {
+        display: none;
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        margin-top: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .iframe-wrapper {
+          padding-bottom: 150%; /* Taller aspect ratio for mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <div class="logo">CodeCoutureHub</div>
+        <h1>Contact Us</h1>
+        <a href="index.html" class="back-link" aria-label="Return to homepage"
+          >← Back to Home</a
+        >
+      </header>
+
+      <main class="form-container" role="main">
+        <div class="iframe-wrapper">
+          <div class="loading-placeholder" id="loadingPlaceholder">
+            <div class="spinner"></div>
+          </div>
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdDgllCzp_IcfO4Bo615aaUVpvIFXDARjc0rsJKnvbkTVW0ww/viewform?embedded=true"
+            title="Contact form"
+            aria-label="Contact form"
+            loading="lazy"
+            onload="this.style.opacity='1'; document.getElementById('loadingPlaceholder').style.display='none';"
+            onerror="handleIframeError()"
+            >Loading contact form...</iframe
+          >
+        </div>
+
+        <!-- Fallback contact information -->
+        <div class="fallback-contact" id="fallbackContact">
+          <h2>Alternative Contact Methods</h2>
+          <p>
+            If you're having trouble with the contact form, you can reach us at:
+          </p>
+          <p><span data-contact="email"></span></p>
+          <p>
+            Or visit our
+            <a
+              href="https://github.com/codecouturiers"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub profile</a
+            >
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Handle iframe loading errors
+      function handleIframeError() {
+        document.getElementById("loadingPlaceholder").style.display = "none";
+        document.getElementById("fallbackContact").style.display = "block";
+      }
+
+      // Check if iframe is blocked
+      setTimeout(function () {
+        const iframe = document.querySelector("iframe");
+        if (!iframe.contentWindow) {
+          handleIframeError();
+        }
+      }, 5000);
+
+      // Adjust iframe height based on content
+      window.addEventListener("message", function (event) {
+        if (event.origin === "https://docs.google.com") {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.height) {
+              const wrapper = document.querySelector(".iframe-wrapper");
+              const aspectRatio = (data.height / window.innerWidth) * 100;
+              wrapper.style.paddingBottom = aspectRatio + "%";
+            }
+          } catch (e) {
+            console.error("Error parsing iframe message:", e);
+          }
+        }
+      });
+
+      // Add your email protection script here
+      // (The same one from the main page)
+    </script>
+  </body>
+</html>
