@@ -1,1 +1,483 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>CodeCoutureHub - Premium Custom Software Development Services</title>
+    <meta
+      name="description"
+      content="Transform your ideas into elegant code with CodeCoutureHub. Specialized in full-stack development, custom solutions, and clean code architecture. Contact us for premium software development services."
+    />
+    <meta
+      name="keywords"
+      content="software development, full-stack development, custom software solutions, web development, React, Vue.js, Angular, Node.js, Python, Java"
+    />
+    <meta name="author" content="CodeCoutureHub" />
+    <link rel="canonical" href="https://codecouturehub.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codecouturehub.com" />
+    <meta
+      property="og:title"
+      content="CodeCoutureHub - Premium Software Development Services"
+    />
+    <meta
+      property="og:description"
+      content="Transform your ideas into elegant code with CodeCoutureHub. Specialized in full-stack development, custom solutions, and clean code architecture."
+    />
+    <meta
+      property="og:image"
+      content="https://codecouturehub.com/images/og-image.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://codecouturehub.com" />
+    <meta
+      property="twitter:title"
+      content="CodeCoutureHub - Premium Software Development"
+    />
+    <meta
+      property="twitter:description"
+      content="Transform your ideas into elegant code with CodeCoutureHub. Specialized in full-stack development, custom solutions, and clean code architecture."
+    />
+    <meta
+      property="twitter:image"
+      content="https://codecouturehub.com/images/twitter-image.jpg"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "CodeCoutureHub",
+        "description": "Premium software development services specializing in full-stack development, custom solutions, and clean code architecture.",
+        "url": "https://codecouturehub.com",
+        "sameAs": ["https://github.com/codecouturiers"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": ""
+        },
+        "offers": {
+          "@type": "Offer",
+          "serviceType": [
+            "Full-stack Development",
+            "Custom Solutions",
+            "Clean Code Architecture",
+            "Frontend Development",
+            "Backend Development",
+            "Database Design",
+            "DevOps"
+          ]
+        }
+      }
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #1a1a2e;
+        --secondary: #0f3460;
+        --accent: #16213e;
+        --highlight: #e94560;
+        --text: #2d3436;
+        --light-text: #718093;
+        --background: #f8f9fa;
+        --card-bg: #ffffff;
+        --success: #2ecc71;
+        --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--background);
+      }
+
+      .top-header {
+        background: var(--primary);
+        padding: 1rem 2rem;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .header-description {
+        color: var(--light-text);
+        margin-left: 2rem;
+      }
+
+      .contact-info {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        color: white;
+      }
+
+      .callback-btn {
+        background: var(--highlight);
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .callback-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+      }
+
+      .offer-section {
+        padding: 8rem 2rem 4rem;
+        background: var(--gradient);
+        color: white;
+        text-align: center;
+      }
+
+      .offer-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .offer-title {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .offer-subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+
+      .offer-benefits {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .offer-benefits li {
+        margin: 0.5rem 0;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--highlight);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: transform 0.3s ease;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+      }
+
+      .product-description {
+        padding: 4rem 2rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .feature {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .testimonials {
+        padding: 4rem 2rem;
+        background: var(--gradient);
+        color: white;
+      }
+
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem auto;
+        max-width: 800px;
+      }
+
+      .footer {
+        background: var(--primary);
+        color: white;
+        padding: 4rem 2rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+      }
+
+      .footer a:hover {
+        opacity: 1;
+      }
+
+      [data-contact="email"] {
+        cursor: pointer;
+        transition: opacity 0.3s;
+      }
+
+      [data-contact="email"]:hover {
+        opacity: 0.8;
+      }
+
+      @media (max-width: 768px) {
+        .offer-title {
+          font-size: 2rem;
+        }
+
+        .top-header {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .contact-info {
+          margin-top: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top-header" role="banner">
+      <div class="header-left">
+        <div class="logo" aria-label="CodeCoutureHub logo">CodeCoutureHub</div>
+        <span class="header-description">Premium Software Development</span>
+      </div>
+      <div class="contact-info">
+        <span data-contact="email" aria-label="Email address"></span>
+        <a
+          href="contact.html"
+          class="callback-btn"
+          role="button"
+          aria-label="Contact us"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <main role="main">
+      <section class="offer-section" aria-label="Main services">
+        <div class="offer-content">
+          <h1 class="offer-title">Creative Software Solutions</h1>
+          <p class="offer-subtitle">Transforming ideas into elegant code</p>
+          <ul class="offer-benefits" aria-label="Key benefits">
+            <li><span aria-hidden="true">✓</span> Full-stack Development</li>
+            <li><span aria-hidden="true">✓</span> Custom Solutions</li>
+            <li><span aria-hidden="true">✓</span> Clean Code Architecture</li>
+          </ul>
+          <a
+            href="https://github.com/codecouturiers"
+            class="cta-button"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="View our projects on GitHub"
+            >View Our Projects</a
+          >
+        </div>
+      </section>
+
+      <section class="product-description" aria-label="Our expertise">
+        <h2 style="text-align: center; margin-bottom: 2rem">Our Expertise</h2>
+        <div class="features-grid" role="list">
+          <article class="feature" role="listitem">
+            <h3>Frontend Development</h3>
+            <p>
+              Modern and responsive web applications using React, Vue.js, and
+              Angular
+            </p>
+          </article>
+          <article class="feature" role="listitem">
+            <h3>Backend Development</h3>
+            <p>Scalable server solutions with Node.js, Python, and Java</p>
+          </article>
+          <article class="feature" role="listitem">
+            <h3>Database Design</h3>
+            <p>Efficient data structures using SQL and NoSQL databases</p>
+          </article>
+          <article class="feature" role="listitem">
+            <h3>DevOps</h3>
+            <p>Continuous integration and deployment with modern tools</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="testimonials" aria-label="Project showcase">
+        <h2 style="text-align: center; margin-bottom: 2rem">
+          Project Showcase
+        </h2>
+        <div class="testimonial-card">
+          <blockquote>
+            <p>
+              "Our portfolio demonstrates our commitment to quality and
+              innovation. Check out our GitHub repository for detailed examples
+              of our work."
+            </p>
+          </blockquote>
+          <div style="text-align: right; margin-top: 1rem">
+            <a
+              href="https://github.com/codecouturiers"
+              class="cta-button"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Visit our GitHub profile"
+              >Visit GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <nav aria-label="Footer navigation">
+            <ul style="list-style: none; padding: 0">
+              <li>
+                <a href="#" data-contact="email" aria-label="Email us"></a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/codecouturiers"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="Visit our GitHub profile"
+                  >GitHub Profile</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <nav aria-label="Secondary footer navigation">
+            <ul style="list-style: none; padding: 0">
+              <li>
+                <a href="contact.html" aria-label="Contact Us">Contact Us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom" style="text-align: center; margin-top: 2rem">
+        <p>
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          CodeCoutureHub. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      function createContactInfo() {
+        const emailParts = {
+          p1: "aW5mbw==",
+          p2: "Y29kZWNvdXR1cmVodWI=",
+          p3: "Y29t",
+        };
+
+        const randomDelay = () => Math.floor(Math.random() * 100);
+
+        function decodeAndAssemble() {
+          try {
+            const part1 = atob(emailParts.p1);
+            const part2 = atob(emailParts.p2);
+            const part3 = atob(emailParts.p3);
+            return `${part1}@${part2}.${part3}`;
+          } catch {
+            return "Error loading email";
+          }
+        }
+
+        setTimeout(() => {
+          const email = decodeAndAssemble();
+          const elements = document.querySelectorAll('[data-contact="email"]');
+
+          elements.forEach((element) => {
+            if (element.tagName === "A") {
+              element.href = `mailto:${email}`;
+            }
+            element.textContent = email
+              .replace("@", " [at] ")
+              .replace(".", " [dot] ");
+
+            element.addEventListener("mouseover", function () {
+              this.textContent = email;
+            });
+
+            element.addEventListener("mouseout", function () {
+              this.textContent = email
+                .replace("@", " [at] ")
+                .replace(".", " [dot] ");
+            });
+          });
+        }, randomDelay());
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", createContactInfo);
+      } else {
+        createContactInfo();
+      }
+    </script>
+  </body>
+</html>
