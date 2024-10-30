@@ -169,11 +169,12 @@
       .iframe-wrapper {
         position: relative;
         width: 100%;
-        height: 0;
-        padding-bottom: 100%;
-        overflow: hidden;
+        min-height: 600px;
+        height: 1000px;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: height 0.3s ease;
+        overflow: hidden;
       }
 
       .iframe-wrapper iframe {
@@ -183,6 +184,7 @@
         width: 100%;
         height: 100%;
         border: none;
+        background: transparent;
       }
 
       .loading-placeholder {
@@ -277,10 +279,6 @@
       }
 
       @media (max-width: 768px) {
-        .iframe-wrapper {
-          padding-bottom: 150%;
-        }
-
         header {
           padding: 1rem;
         }
@@ -342,22 +340,90 @@
           <p><span data-contact="email"></span></p>
           <p>
             Or visit our
-
             <a
               href="https://github.com/codecouturiers"
               target="_blank"
               rel="noopener noreferrer"
-              >GitHub profile</a
             >
+              GitHub profile
+            </a>
           </p>
         </div>
       </main>
     </div>
 
     <script>
+      let resizeObserver;
+
+      function setupIframeResizer(iframe) {
+        const wrapper = document.querySelector(".iframe-wrapper");
+
+        function handleMessage(event) {
+          if (event.origin === "https://docs.google.com") {
+            try {
+              let height;
+              const data = event.data;
+
+              if (typeof data === "string") {
+                if (data.includes("height=")) {
+                  height = parseInt(data.split("height=")[1], 10);
+                } else {
+                  try {
+                    const parsedData = JSON.parse(data);
+                    height = parsedData.height;
+                  } catch (e) {}
+                }
+              } else if (data && typeof data.height !== "undefined") {
+                height = data.height;
+              }
+
+              if (height && !isNaN(height)) {
+                wrapper.style.height = `${Math.max(height + 50, 600)}px`;
+                iframe.style.height = "100%";
+              }
+            } catch (e) {
+              console.log("Error processing message:", e);
+            }
+          }
+        }
+
+        window.addEventListener("message", handleMessage);
+
+        const requestInterval = setInterval(() => {
+          try {
+            iframe.contentWindow.postMessage(
+              { type: "requestSize" },
+              "https://docs.google.com"
+            );
+          } catch (e) {}
+        }, 1000);
+
+        const resizeHandler = () => {
+          try {
+            iframe.contentWindow.postMessage(
+              { type: "requestSize" },
+              "https://docs.google.com"
+            );
+          } catch (e) {}
+        };
+
+        window.addEventListener("resize", resizeHandler);
+
+        return () => {
+          window.removeEventListener("message", handleMessage);
+          window.removeEventListener("resize", resizeHandler);
+          clearInterval(requestInterval);
+        };
+      }
+
       function handleIframeLoad(iframe) {
         iframe.style.opacity = "1";
         document.getElementById("loadingPlaceholder").style.display = "none";
+
+        const wrapper = document.querySelector(".iframe-wrapper");
+        wrapper.style.height = "1000px";
+
+        setupIframeResizer(iframe);
       }
 
       function handleIframeError() {
@@ -373,25 +439,6 @@
 
       setTimeout(checkIframeBlocked, 5000);
 
-      window.addEventListener("message", function (event) {
-        if (event.origin === "https://docs.google.com") {
-          try {
-            const data = JSON.parse(event.data);
-            if (data.height) {
-              const wrapper = document.querySelector(".iframe-wrapper");
-              const aspectRatio = (data.height / window.innerWidth) * 100;
-              wrapper.style.paddingBottom = `${Math.min(
-                Math.max(aspectRatio, 100),
-                150
-              )}%`;
-            }
-          } catch (e) {
-            console.error("Error parsing iframe message:", e);
-          }
-        }
-      });
-
-      // Email protection
       function createContactInfo() {
         const emailParts = {
           p1: "aW5mbw==",
