@@ -7,7 +7,6 @@
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
 
-    <!-- SEO Meta Tags -->
     <title>CodeCoutureHub - Premium Custom Software Development Services</title>
     <meta
       name="description"
@@ -20,7 +19,6 @@
     <meta name="author" content="CodeCoutureHub" />
     <link rel="canonical" href="https://codecouturehub.com/current-page-path" />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://codecouturehub.com" />
     <meta
@@ -36,7 +34,6 @@
       content="https://codecouturehub.com/images/og-image.jpg"
     />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://codecouturehub.com" />
     <meta
@@ -52,7 +49,6 @@
       content="https://codecouturehub.com/images/twitter-image.jpg"
     />
 
-    <!-- Schema.org markup -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -99,6 +95,16 @@
         box-sizing: border-box;
       }
 
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background: var(--background);
+        overflow-x: hidden;
+        width: 100%;
+      }
+
       .skip-link {
         position: absolute;
         top: -40px;
@@ -114,16 +120,10 @@
         top: 0;
       }
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--text);
-        background: var(--background);
-      }
-
       .top-header {
-        background: var(--primary);
+        background: rgba(10, 10, 31, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         padding: 1rem 2rem;
         position: fixed;
         width: 100%;
@@ -131,19 +131,64 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: auto;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .top-header.scrolled {
+        padding: 0.75rem 2rem;
+        background: rgba(10, 10, 31, 0.98);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
       }
 
       .logo {
         color: white;
         font-size: 1.5rem;
         font-weight: 700;
-        font-display: swap;
+        position: relative;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .logo::before {
+        content: "{ }";
+        font-size: 1.2rem;
+        color: var(--highlight);
+        font-weight: 900;
+        opacity: 0.8;
+      }
+
+      .logo::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--highlight);
+        transition: width 0.3s ease;
+      }
+
+      .logo:hover::after {
+        width: 100%;
       }
 
       .header-description {
-        color: #ffffff;
-        margin-left: 2rem;
+        color: rgba(255, 255, 255, 0.9);
         font-weight: 500;
+        padding-left: 1rem;
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
       }
 
       .contact-info {
@@ -154,54 +199,81 @@
       }
 
       .callback-btn {
-        background: var(--highlight);
-        border: none;
-        min-height: 44px;
-        min-width: 44px;
-        padding: 0.5rem 1.5rem;
-        border-radius: 25px;
+        background: transparent;
+        border: 2px solid var(--highlight);
+        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
         color: white;
+        font-weight: 500;
         cursor: pointer;
         transition: all 0.3s ease;
         text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .callback-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--highlight);
+        transition: width 0.3s ease;
+        z-index: -1;
+      }
+
+      .callback-btn:hover::before {
+        width: 100%;
       }
 
       .callback-btn:hover {
-        transform: translateY(-3px);
+        transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(214, 46, 72, 0.3);
       }
-
-      .callback-btn:focus {
-        outline: 3px solid white;
-        outline-offset: 2px;
-      }
-
       .offer-section {
-        padding: 8rem 2rem 4rem;
+        padding-top: calc(4rem + 60px);
+        padding-bottom: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         background: var(--gradient);
         color: white;
         text-align: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .offer-content {
         max-width: 800px;
         margin: 0 auto;
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
       }
 
       .offer-title {
         font-size: 3rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.5rem;
+        word-break: keep-all;
       }
 
       .offer-subtitle {
         font-size: 1.2rem;
         opacity: 0.9;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
       }
 
       .offer-benefits {
         list-style: none;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
       }
 
       .offer-benefits li {
@@ -230,6 +302,7 @@
         outline: 3px solid white;
         outline-offset: 2px;
       }
+
       .product-description {
         padding: 4rem 2rem;
       }
@@ -240,13 +313,24 @@
         gap: 2rem;
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 1rem;
+        box-sizing: border-box;
       }
 
       .feature {
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
       }
 
       .feature h3 {
@@ -271,42 +355,250 @@
       }
 
       .footer {
-        background: var(--primary);
+        background: linear-gradient(to bottom, var(--primary), #050510);
         color: white;
-        padding: 4rem 2rem;
+        padding: 6rem 2rem 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
       }
 
       .footer-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
+        gap: 4rem;
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 1rem;
+        position: relative;
+      }
+
+      .footer-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .footer-section h3 {
+        font-size: 1.2rem;
+        color: var(--highlight);
+        position: relative;
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--highlight);
+        transition: width 0.3s ease;
+      }
+
+      .footer-section:hover h3::after {
+        width: 60px;
+      }
+
+      .footer nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .footer nav ul li {
+        display: flex;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 0.3rem 0;
       }
 
       .footer a {
-        color: #ffffff;
+        color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
-        opacity: 0.9;
-        transition: opacity 0.3s;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        padding: 0.3rem 0;
       }
 
       .footer a:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+
+      .footer nav ul li:not(:has(a)) {
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .footer nav ul li:not(:has(a))::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--highlight);
+        opacity: 0.7;
+        transition: transform 0.3s ease;
+      }
+
+      .footer nav ul li:not(:has(a)):hover {
+        color: white;
+        transform: translateX(5px);
+      }
+
+      .footer nav ul li:not(:has(a)):hover::before {
         opacity: 1;
       }
 
-      .footer a:focus {
-        outline: 3px solid white;
-        outline-offset: 2px;
+      .footer a[data-contact="email"]::before {
+        content: "✉";
+        font-size: 1.1rem;
+        color: var(--highlight);
+        opacity: 0.8;
+      }
+
+      .footer a[href*="github"]::before {
+        content: "⌘";
+        font-size: 1.1rem;
+        color: var(--highlight);
+        opacity: 0.8;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-bottom p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .footer-bottom p::before,
+      .footer-bottom p::after {
+        content: "•";
+        color: var(--highlight);
+        opacity: 0.7;
+      }
+
+      .footer::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(
+          60deg,
+          transparent,
+          rgba(255, 255, 255, 0.03),
+          transparent
+        );
+        animation: shimmer 8s infinite linear;
+        pointer-events: none;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-30%);
+        }
+        100% {
+          transform: translateX(30%);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer {
+          padding: 4rem 1.5rem 2rem;
+        }
+
+        .footer-grid {
+          gap: 3rem;
+        }
+
+        .footer-section h3 {
+          font-size: 1.1rem;
+        }
+
+        .footer nav ul li,
+        .footer a {
+          font-size: 0.95rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer {
+          padding: 3rem 1rem 1.5rem;
+        }
+
+        .footer-grid {
+          gap: 2rem;
+        }
+
+        .footer-section {
+          gap: 1rem;
+        }
+
+        .footer-bottom {
+          margin-top: 2rem;
+          font-size: 0.85rem;
+        }
       }
 
       [data-contact="email"] {
         cursor: pointer;
-        transition: opacity 0.3s;
+        transition: all 0.3s ease;
+        padding: 0.6rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        font-size: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      [data-contact="email"]::before {
+        content: "✉";
+        font-size: 1.1rem;
+        opacity: 0.9;
       }
 
       [data-contact="email"]:hover {
-        opacity: 0.8;
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: white;
+        transform: translateY(-1px);
       }
 
       :focus-visible {
@@ -314,18 +606,188 @@
         outline-offset: 2px;
       }
 
+      .gap-1 {
+        gap: 0.5rem;
+      }
+      .gap-2 {
+        gap: 1rem;
+      }
+      .gap-3 {
+        gap: 1.5rem;
+      }
+      .gap-4 {
+        gap: 2rem;
+      }
+      .gap-5 {
+        gap: 2.5rem;
+      }
+
+      .grid-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
       @media (max-width: 768px) {
-        .offer-title {
-          font-size: 2rem;
+        .top-header {
+          padding: 1rem;
+          flex-direction: column;
+          transform: translateY(0);
+          transition: transform 0.3s ease, background 0.3s ease,
+            padding 0.3s ease;
+        }
+        .top-header.header-hidden {
+          transform: translateY(-100%);
+        }
+        .top-header.scrolled {
+          padding: 0.75rem 1rem;
         }
 
-        .top-header {
+        .header-left {
           flex-direction: column;
-          padding: 1rem;
+          align-items: center;
+          gap: 0.5rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .header-description {
+          padding-left: 0;
+          border-left: none;
+          text-align: center;
+          font-size: 0.9rem;
         }
 
         .contact-info {
-          margin-top: 1rem;
+          flex-direction: column;
+          gap: 1rem;
+          width: 100%;
+        }
+        [data-contact="email"] {
+          width: 100%;
+          justify-content: center;
+          padding: 0.75rem 1rem;
+          font-size: 0.9rem;
+        }
+
+        .callback-btn {
+          width: 100%;
+          text-align: center;
+        }
+
+        .offer-section {
+          padding-top: calc(4rem + 120px);
+          min-height: auto;
+          padding-bottom: 3rem;
+        }
+
+        .offer-content {
+          gap: 1rem;
+          padding: 0;
+        }
+
+        .offer-title {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+          white-space: normal;
+          word-break: normal;
+          line-height: 1.3;
+          padding: 0 0.5rem;
+        }
+
+        .offer-subtitle {
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+          padding: 0 1rem;
+        }
+
+        .offer-benefits {
+          margin-bottom: 1.5rem;
+        }
+
+        .offer-benefits li {
+          margin: 0.5rem 0;
+        }
+
+        .cta-button {
+          margin-top: 0.5rem;
+        }
+
+        .feature {
+          padding: 1.5rem;
+        }
+
+        .grid-container {
+          padding: 0 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        [data-contact="email"] {
+          font-size: 0.85rem;
+          padding: 0.7rem 1rem;
+        }
+        .top-header {
+          padding: 0.5rem;
+        }
+
+        .logo {
+          font-size: 1.2rem;
+        }
+
+        .header-description {
+          font-size: 0.85rem;
+        }
+
+        .contact-info {
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .callback-btn {
+          width: 100%;
+          text-align: center;
+          padding: 0.75rem 1rem;
+        }
+
+        .offer-section {
+          padding-top: calc(4rem + 140px);
+          height: 100vh;
+          display: flex;
+          align-items: center;
+        }
+
+        .offer-content {
+          gap: 0.75rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .offer-title {
+          font-size: 1.75rem;
+        }
+
+        .offer-benefits li {
+          margin: 0.4rem 0;
+        }
+
+        .features-grid {
+          gap: 1rem;
+          padding: 0 0.5rem;
+        }
+
+        .testimonial-card {
+          padding: 1.5rem;
+          margin: 1rem auto;
+        }
+
+        .footer {
+          padding: 3rem 1rem;
+        }
+
+        .footer-grid {
+          gap: 2rem;
         }
       }
     </style>
@@ -333,7 +795,7 @@
   <body>
     <header class="top-header">
       <div class="header-left">
-        <div class="logo">CodeCoutureHub</div>
+        <a href="https://codecouturehub.com/" class="logo">CodeCoutureHub</a>
         <span class="header-description">Premium Software Development</span>
       </div>
       <div class="contact-info">
@@ -419,13 +881,12 @@
         </div>
       </section>
     </main>
-
     <footer class="footer">
       <div class="footer-grid">
         <div class="footer-section">
-          <h3 id="contact-heading">Contact</h3>
+          <h3>Contact Us</h3>
           <nav aria-labelledby="contact-heading">
-            <ul style="list-style: none; padding: 0">
+            <ul>
               <li>
                 <a href="#" data-contact="email">Email us</a>
               </li>
@@ -441,17 +902,33 @@
           </nav>
         </div>
         <div class="footer-section">
-          <h3 id="quick-links-heading">Quick Links</h3>
+          <h3>Quick Links</h3>
           <nav aria-labelledby="quick-links-heading">
-            <ul style="list-style: none; padding: 0">
+            <ul>
               <li>
-                <a href="contact.html">Contact Us</a>
+                <a href="#main-content">Home</a>
+              </li>
+              <li>
+                <a href="#expertise-title">Our Services</a>
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
               </li>
             </ul>
           </nav>
         </div>
+        <div class="footer-section">
+          <h3>Our Solutions</h3>
+          <nav>
+            <ul>
+              <li>Full-stack Development</li>
+              <li>Custom Solutions</li>
+              <li>Clean Code Architecture</li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <div class="footer-bottom" style="text-align: center; margin-top: 2rem">
+      <div class="footer-bottom">
         <p>
           &copy; <span id="currentYear"></span> CodeCoutureHub. All rights
           reserved.
@@ -463,6 +940,47 @@
       document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("currentYear").textContent =
           new Date().getFullYear();
+      });
+
+      let lastScrollTop = 0;
+      const scrollThreshold = 50;
+      let scrollTimer = null;
+
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".top-header");
+        const currentScrollTop = window.scrollY;
+
+        if (currentScrollTop > scrollThreshold) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+
+        if (window.innerWidth <= 768) {
+          if (
+            currentScrollTop > lastScrollTop &&
+            currentScrollTop > scrollThreshold
+          ) {
+            header.classList.add("header-hidden");
+          } else {
+            header.classList.remove("header-hidden");
+          }
+
+          clearTimeout(scrollTimer);
+
+          scrollTimer = setTimeout(() => {
+            header.classList.remove("header-hidden");
+          }, 1500);
+        }
+
+        lastScrollTop = currentScrollTop;
+      });
+
+      window.addEventListener("resize", function () {
+        const header = document.querySelector(".top-header");
+        if (window.innerWidth > 768) {
+          header.classList.remove("header-hidden");
+        }
       });
 
       function createContactInfo() {
@@ -496,6 +1014,20 @@
                 element.href = `mailto:${email}`;
               }
               element.textContent = obfuscatedEmail;
+
+              element.addEventListener("click", async (e) => {
+                e.preventDefault();
+                try {
+                  await navigator.clipboard.writeText(email);
+                  const originalText = element.textContent;
+                  element.textContent = "Email copied!";
+                  setTimeout(() => {
+                    element.textContent = originalText;
+                  }, 2000);
+                } catch (err) {
+                  console.error("Failed to copy email");
+                }
+              });
 
               element.addEventListener(
                 "mouseover",
