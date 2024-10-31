@@ -84,6 +84,8 @@
         --light-text: #555555;
         --background: #f8f9fa;
         --card-bg: #ffffff;
+        --gradient-start: #0a0a1f;
+        --gradient-end: #d62e48;
       }
 
       * {
@@ -158,12 +160,132 @@
         outline-offset: 2px;
       }
 
-      .form-container {
-        flex: 1;
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: minmax(300px, 400px) minmax(500px, 800px);
+        gap: 2rem;
         padding: 2rem;
-        max-width: 800px;
+        max-width: 1400px;
         margin: 0 auto;
         width: 100%;
+      }
+
+      .contact-info {
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-info h1 {
+        color: var(--primary);
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 3rem;
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          var(--gradient-start) 0%,
+          var(--gradient-end) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        background-size: 200% auto;
+        animation: gradientFlow 5s ease infinite;
+      }
+
+      .contact-info h1::before {
+        content: "";
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          135deg,
+          var(--highlight) 0%,
+          transparent 70%
+        );
+        opacity: 0.1;
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      .contact-info h1::after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 0;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--highlight) 0%,
+          transparent 100%
+        );
+        border-radius: 2px;
+      }
+
+      .info-block {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .info-block:last-of-type {
+        border-bottom: none;
+      }
+
+      .info-block h3 {
+        color: var(--secondary);
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .info-block p {
+        color: var(--light-text);
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.75rem 1.5rem;
+        border: 2px solid var(--primary);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .form-container {
+        background: var(--card-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
       }
 
       .iframe-wrapper {
@@ -171,8 +293,8 @@
         width: 100%;
         min-height: 600px;
         height: 1000px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         transition: height 0.3s ease;
         overflow: hidden;
       }
@@ -209,14 +331,8 @@
         animation: spin 1s linear infinite;
       }
 
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
       .contact-divider {
-        margin: 2rem 0;
+        margin: 3rem 0;
         text-align: center;
         position: relative;
       }
@@ -240,12 +356,11 @@
       }
 
       .fallback-contact {
+        background: var(--background);
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         text-align: center;
-        padding: 2rem;
-        background: white;
-        border-radius: 10px;
-        margin-top: 2rem;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
 
       .fallback-contact h2 {
@@ -278,6 +393,36 @@
         outline-offset: 2px;
       }
 
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+          position: static;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+      }
+
       @media (max-width: 768px) {
         header {
           padding: 1rem;
@@ -285,6 +430,46 @@
 
         h1 {
           font-size: 1.75rem;
+        }
+
+        .contact-wrapper {
+          padding: 1rem;
+          gap: 1.5rem;
+        }
+
+        .contact-info,
+        .form-container {
+          padding: 2rem;
+        }
+
+        .contact-info h1 {
+          font-size: 2rem;
+          margin-bottom: 2.5rem;
+        }
+
+        .contact-info h1::before {
+          width: 40px;
+          height: 40px;
+          top: -0.75rem;
+          left: -0.75rem;
+        }
+
+        .contact-info h1::after {
+          width: 80px;
+          height: 3px;
+        }
+
+        .info-block h3 {
+          font-size: 1.1rem;
+        }
+
+        .social-links {
+          flex-direction: column;
+        }
+
+        .social-link {
+          width: 100%;
+          justify-content: center;
         }
       }
 
@@ -294,6 +479,15 @@
         }
 
         .back-link {
+          transform: none;
+        }
+
+        .contact-info h1 {
+          animation: none;
+          background-size: 100%;
+        }
+
+        .contact-info:hover h1::before {
           transform: none;
         }
 
@@ -311,43 +505,64 @@
         <a href="index.html" class="back-link">← Back to Home</a>
       </header>
 
-      <main id="main-content" class="form-container">
-        <div class="iframe-wrapper">
-          <div
-            class="loading-placeholder"
-            id="loadingPlaceholder"
-            aria-label="Loading contact form"
-          >
-            <div class="spinner" role="status" aria-label="Loading..."></div>
+      <main class="contact-wrapper">
+        <div class="contact-info">
+          <h1>Let's Create Something Amazing Together</h1>
+          <div class="info-block">
+            <h3>Office Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM GMT</p>
+            <p>Saturday - Sunday: By appointment</p>
           </div>
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdDgllCzp_IcfO4Bo615aaUVpvIFXDARjc0rsJKnvbkTVW0ww/viewform?embedded=true"
-            title="Contact form"
-            loading="lazy"
-            onload="handleIframeLoad(this)"
-            onerror="handleIframeError()"
-            >Loading contact form...</iframe
-          >
-        </div>
-
-        <div class="contact-divider">
-          <span>OR</span>
-        </div>
-
-        <div class="fallback-contact">
-          <h2>Alternative Contact Methods</h2>
-          <p>You can also reach us directly via:</p>
-          <p><span data-contact="email"></span></p>
-          <p>
-            Or visit our
+          <div class="social-links">
             <a
               href="https://github.com/codecouturiers"
+              class="social-link"
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub profile
+              GitHub
             </a>
-          </p>
+          </div>
+        </div>
+
+        <div class="form-container">
+          <div class="iframe-wrapper">
+            <div
+              class="loading-placeholder"
+              id="loadingPlaceholder"
+              aria-label="Loading contact form"
+            >
+              <div class="spinner" role="status" aria-label="Loading..."></div>
+            </div>
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSdDgllCzp_IcfO4Bo615aaUVpvIFXDARjc0rsJKnvbkTVW0ww/viewform?embedded=true"
+              title="Contact form"
+              loading="lazy"
+              onload="handleIframeLoad(this)"
+              onerror="handleIframeError()"
+              >Loading contact form...</iframe
+            >
+          </div>
+
+          <div class="contact-divider">
+            <span>OR</span>
+          </div>
+
+          <div class="fallback-contact">
+            <h2>Alternative Contact Methods</h2>
+            <p>You can also reach us directly via:</p>
+            <p><span data-contact="email"></span></p>
+            <p>
+              Or visit our
+              <a
+                href="https://github.com/codecouturiers"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub profile
+              </a>
+            </p>
+          </div>
         </div>
       </main>
     </div>
